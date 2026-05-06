@@ -78,8 +78,22 @@
 
 	<ItemGroup>
 	  <Folder Include="Service\" />
-	  <Folder Include="View\" />
 	  <Folder Include="ViewModel\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\Styles\ColorsCustom.xaml.cs">
+	    <DependentUpon>ColorsCustom.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Styles\StylesCustom.xaml.cs">
+	    <DependentUpon>StylesCustom.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\HomeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

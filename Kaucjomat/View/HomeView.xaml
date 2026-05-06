@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kaucjomat.View.HomeView"
+             Title="HomeView">
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.ColumnSpan="2"
+                   BackgroundColor="{StaticResource BackgroundColor}"
+                   Margin="10" StrokeShape="RoundRectangle 30"
+                   Padding="20">
+                <StackLayout Orientation="Vertical" Spacing="20">
+                    <Label Style="{StaticResource Header}"
+
+                    Text="Twoje środki:"/>
+                    <Label Style="{StaticResource Header}"
+                       FontSize="42"
+                       Text="45,71 zł"/>
+                </StackLayout>
+
+            </Border>
+
+            <Border Grid.Row="1"
+                BackgroundColor="{StaticResource BackgroundColor}"
+                Margin="10" StrokeShape="RoundRectangle 30"
+                Padding="20">
+                <StackLayout Orientation="Vertical" Spacing="20">
+                    <Label Style="{StaticResource Big}"
+                       Text="Vouchery"/>
+                    <Label Style="{StaticResource Header}"
+                       FontSize="42"
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                       Text="12"/>
+                </StackLayout>
+
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>

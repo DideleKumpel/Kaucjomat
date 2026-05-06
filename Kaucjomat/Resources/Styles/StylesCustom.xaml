@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HeavyLift.Resources.Styles.StylesHeavyLift">
+
+    <Style x:Key="WhiteBtn" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}"/>
+        <Setter Property="CornerRadius" Value="17"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="30,15"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Opacity" Value="0.75"/>
+                            <Setter Property="Scale" Value="0.95"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="Small"/>
+        <Setter Property="CornerRadius" Value="17"/>
+        <Setter Property="BorderWidth" Value="5" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="30,15"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Opacity" Value="0.75"/>
+                            <Setter Property="Scale" Value="0.95"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainButtonSmall" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="Small"/>
+        <Setter Property="CornerRadius" Value="17"/>
+        <Setter Property="BorderWidth" Value="3" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="3,3"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Opacity" Value="0.75"/>
+                            <Setter Property="Scale" Value="0.95"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DangerButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="Small"/>
+        <Setter Property="CornerRadius" Value="17"/>
+        <Setter Property="BorderWidth" Value="5" />
+        <Setter Property="BorderColor" Value="{StaticResource DangerColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="30,15"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Opacity" Value="0.75"/>
+                            <Setter Property="Scale" Value="0.95"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBtn" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="TextBtnPrimaryColor" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+
+    <Style x:Key="Header" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="28"/>
+    </Style>
+
+    <Style x:Key="Big" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Medium" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    
+    <Style x:Key="Small" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="FontSize" Value="10"/>
+    </Style>
+
+    <Style x:Key="Warning" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DangerColor}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Succes" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource SuccesColor}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style TargetType="TabBar">
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="Shell.TitleColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource PrimaryColor}"/>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HeavyLift.Resources.Styles.ColorsPalettesHeavyLift">
+
+    <Color x:Key="PrimaryColor">#FF0000</Color>
+    <Color x:Key="SecondaryColor">#FF4081</Color>
+    <Color x:Key="BackgroundColor">#F3F4F4</Color>
+    <Color x:Key="SecondaryBackgroundColor">#323232</Color>
+    <Color x:Key="TertiaryBackgroundColor">#73A5CA</Color>
+    <Color x:Key="DangerColor">#FF3131</Color>
+    <Color x:Key="SuccesColor">#2EFF2E</Color>
+    <Color x:Key="TextColor">#000000</Color>
+    <Color x:Key="SecondaryTextColor">#FFFFFF</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{StaticResource SecondaryBackgroundColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}" />
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource SecondaryTextColor}" />
+    
+</ResourceDictionary>
