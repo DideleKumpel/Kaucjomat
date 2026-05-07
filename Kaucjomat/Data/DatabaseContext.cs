@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Kaucjomat.Data
 {
-    class DatabaseContext
+    public class DatabaseContext
     {
         private SQLiteAsyncConnection _connection;
         private readonly string _dbPath;

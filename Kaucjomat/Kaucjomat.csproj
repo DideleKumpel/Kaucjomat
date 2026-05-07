@@ -77,10 +77,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModel\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Resources\Styles\ColorsCustom.xaml.cs">
 	    <DependentUpon>ColorsCustom.xaml</DependentUpon>
 	  </Compile>

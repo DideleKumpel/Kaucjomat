@@ -1,5 +1,7 @@
 ﻿using Kaucjomat.Data;
 using Kaucjomat.Service;
+using Kaucjomat.View;
+using Kaucjomat.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace Kaucjomat
@@ -30,11 +32,16 @@ namespace Kaucjomat
             builder.Services.AddSingleton<IVoucherDbService, VoucherDbService>();
             builder.Services.AddSingleton<IStoreDbService, StoreDbService>();
 
-            //VIEW
-            builder.Services.AddTransient<MainPage>();
 
-            //VIEWMODEL
+            builder.Services.AddTransient<HomeView>();
+            
+            builder.Services.AddTransient<VouchersView>();
 
+            builder.Services.AddTransient<AddNewViewModel>();
+            builder.Services.AddTransient<AddNewView>();
+            
+
+            builder.Services.AddSingleton<AppShell>();
 
             return builder.Build();
         }

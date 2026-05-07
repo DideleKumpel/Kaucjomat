@@ -1,11 +1,8 @@
 ﻿using Kaucjomat.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kaucjomat.Service
 {
-    interface IStoreDbService
+    public interface IStoreDbService
     {
         Task<IEnumerable<Store>> GetStoresAsync();
         Task<Store> GetStoreByIdAsync(int id);

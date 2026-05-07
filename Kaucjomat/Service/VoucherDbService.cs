@@ -1,12 +1,9 @@
 ﻿using Kaucjomat.Data;
 using Kaucjomat.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kaucjomat.Service
 {
-    class VoucherDbService : IVoucherDbService
+    public class VoucherDbService : IVoucherDbService
     {
         private readonly DatabaseContext _context;
 

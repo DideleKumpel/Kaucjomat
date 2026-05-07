@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kaucjomat.View.AddNewView">
+             x:Class="Kaucjomat.View.AddNewView"
+             xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
+             x:DataType="vm:AddNewViewModel">
     <Shell.TitleView>
         <Label Text="DODAJ VOUCHER"
                TextColor="{StaticResource PrimaryColor}"
@@ -17,41 +19,38 @@
             Text="Wybierz sklep"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Picker FontSize="32">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Biedronka</x:String>
-                    <x:String>LIDL</x:String>
-                    <x:String>Dino</x:String>
-                    <x:String>NETTO</x:String>
-                    <x:String>Auchan</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Picker FontSize="32"
+                    ItemsSource="{Binding Stores}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedStore}"/>
 
-        <Label Style="{StaticResource Header}"
+
+            <Label Style="{StaticResource Header}"
                Text="Kwota"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
-        <Entry PlaceholderColor="{StaticResource TextColor}"
-               Text="45.12 zł"  FontSize="32" Keyboard="Numeric" />
+            <Entry PlaceholderColor="{StaticResource TextColor}"
+               Text="{Binding Amount}"  FontSize="32" Keyboard="Numeric" />
 
         <Label Style="{StaticResource Header}"
                Text="Termin ważności"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
         <DatePicker 
-            FontSize="32"/>
+            FontSize="32"
+            Date="{Binding ExpiryDate}"/>
 
         <Label Style="{StaticResource Header}"
-               Text="Kod"
+               Text="Kod kreskowy"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
         <Entry PlaceholderColor="{StaticResource TextColor}"
-               Text="12345678901234556"  FontSize="32" Keyboard="Numeric" />
+               Text="{Binding BarcodeValue}"  FontSize="32" Keyboard="Numeric" />
 
         <Button Style="{StaticResource MainButton}" Text="SKANUJ KOD"/>
-        <Button Style="{StaticResource RedBtn}" Text="Dodaj"/>
+        <Button Style="{StaticResource RedBtn}" 
+                Text="Dodaj"
+                Command="{Binding SaveVoucherCommand}"/>
     </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

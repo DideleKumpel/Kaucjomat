@@ -1,15 +1,12 @@
 ﻿using Kaucjomat.Data;
 using Kaucjomat.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kaucjomat.Service
 {
-    class StoreDbService : IStoreDbService
+    public class StoreDbService : IStoreDbService
     {
         DatabaseContext _context;
-        StoreDbService(DatabaseContext context)
+        public StoreDbService(DatabaseContext context)
         {
             _context = context;
         }

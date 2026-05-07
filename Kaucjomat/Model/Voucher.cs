@@ -3,7 +3,7 @@
 namespace Kaucjomat.Model
 {
     [Table("Vouchers")]
-    class Voucher
+    public class Voucher
     {
         [PrimaryKey, AutoIncrement]
         [Column("id")]

@@ -4,7 +4,7 @@
 namespace Kaucjomat.Model
 {
     [Table("Stores")]
-    class Store
+    public class Store
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

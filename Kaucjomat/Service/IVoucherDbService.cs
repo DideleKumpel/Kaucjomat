@@ -1,7 +1,7 @@
 ﻿using Kaucjomat.Model;
 namespace Kaucjomat.Service
 {
-    interface IVoucherDbService
+    public interface IVoucherDbService
     {
         Task<IEnumerable<Voucher>> GetAllVouchersAsync();
         Task<IEnumerable<Voucher>> GetActiveVouchersAsync();
