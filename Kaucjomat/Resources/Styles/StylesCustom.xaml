@@ -140,10 +140,10 @@
     </Style>
 
     <Style TargetType="TabBar">
-        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
         <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TextColor}"/>
-        <Setter Property="Shell.TitleColor" Value="{StaticResource TextColor}"/>
-        <Setter Property="Shell.BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <Setter Property="Shell.TitleColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource BackgroundColor}"/>
         <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource PrimaryColor}"/>
         <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource PrimaryColor}"/>
     </Style>
