@@ -77,7 +77,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Service\" />
 	  <Folder Include="ViewModel\" />
 	</ItemGroup>
 

@@ -1,4 +1,5 @@
 ﻿using Kaucjomat.Data;
+using Kaucjomat.Service;
 using Microsoft.Extensions.Logging;
 
 namespace Kaucjomat
@@ -25,7 +26,14 @@ namespace Kaucjomat
             builder.Services.AddSingleton<DatabaseContext>(s =>
                 ActivatorUtilities.CreateInstance<DatabaseContext>(s, dbPath));
 
+            //SERVICES
+            builder.Services.AddSingleton<IVoucherDbService, VoucherDbService>();
+            builder.Services.AddSingleton<IStoreDbService, StoreDbService>();
+
+            //VIEW
             builder.Services.AddTransient<MainPage>();
+
+            //VIEWMODEL
 
 
             return builder.Build();
