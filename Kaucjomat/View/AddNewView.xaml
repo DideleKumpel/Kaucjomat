@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kaucjomat.View.AddNewView"
-             Title="ADD NEW VOUCHER">
-    <VerticalStackLayout>
-        <Label 
-            Text="Add new voucher place holder"
+             x:Class="Kaucjomat.View.AddNewView">
+    <Shell.TitleView>
+        <Label Text="ADD NEW VOUCHER"
+               TextColor="{StaticResource PrimaryColor}"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               HorizontalTextAlignment="Center" />
+    </Shell.TitleView>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <Label Style="{StaticResource Header}"
+            Text="Wybierz sklep"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Picker FontSize="32">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Biedronka</x:String>
+                    <x:String>LIDL</x:String>
+                    <x:String>Dino</x:String>
+                    <x:String>NETTO</x:String>
+                    <x:String>Auchan</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Style="{StaticResource Header}"
+               Text="Kwota"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry PlaceholderColor="{StaticResource TextColor}"
+               Text="45.12 zł"  FontSize="32" Keyboard="Numeric" />
+
+        <Label Style="{StaticResource Header}"
+               Text="Termin ważności"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <DatePicker 
+            FontSize="32"/>
+
+        <Label Style="{StaticResource Header}"
+               Text="Kod"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry PlaceholderColor="{StaticResource TextColor}"
+               Text="12345678901234556"  FontSize="32" Keyboard="Numeric" />
+
+        <Button Style="{StaticResource MainButton}" Text="SKANUJ KOD"/>
+        <Button Style="{StaticResource RedBtn}" Text="Dodaj"/>
     </VerticalStackLayout>
 </ContentPage>
