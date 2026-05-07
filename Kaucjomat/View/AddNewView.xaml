@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kaucjomat.View.AddNewView">
     <Shell.TitleView>
-        <Label Text="ADD NEW VOUCHER"
+        <Label Text="DODAJ VOUCHER"
                TextColor="{StaticResource PrimaryColor}"
                FontSize="32"
                FontAttributes="Bold"
@@ -11,7 +11,8 @@
                VerticalOptions="Center"
                HorizontalTextAlignment="Center" />
     </Shell.TitleView>
-    <VerticalStackLayout Spacing="10" Margin="10">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Margin="10">
         <Label Style="{StaticResource Header}"
             Text="Wybierz sklep"
             VerticalOptions="Center" 
@@ -52,4 +53,5 @@
         <Button Style="{StaticResource MainButton}" Text="SKANUJ KOD"/>
         <Button Style="{StaticResource RedBtn}" Text="Dodaj"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

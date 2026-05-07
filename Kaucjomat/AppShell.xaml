@@ -11,11 +11,11 @@
         <Tab Title="Home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
-        <Tab Title="Add">
-            <ShellContent ContentTemplate="{DataTemplate views:AddNewView}"/>
-        </Tab>
         <Tab Title="Vouchers">
             <ShellContent ContentTemplate="{DataTemplate views:VouchersView}"/>
+        </Tab>
+        <Tab Title="Add">
+            <ShellContent ContentTemplate="{DataTemplate views:AddNewView}"/>
         </Tab>
     </TabBar>
 
