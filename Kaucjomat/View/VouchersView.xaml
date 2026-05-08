@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
+             xmlns:converters="clr-namespace:Kaucjomat.Converters"
+             x:DataType="vm:VouchersViewModel"
              x:Class="Kaucjomat.View.VouchersView">
+    
+    <ContentPage.Resources>
+        <converters:DateToColorConverter x:Key="DateColorConv" />
+    </ContentPage.Resources>
+    
     <Shell.TitleView>
         <Label Text="TWOJE VOUCHERY"
                TextColor="{StaticResource SecondaryTextColor}"
@@ -18,17 +26,14 @@
                     Text="Wybierz sklep"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" />
-            <Picker FontSize="32">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Biedronka</x:String>
-                        <x:String>LIDL</x:String>
-                        <x:String>Dino</x:String>
-                        <x:String>NETTO</x:String>
-                        <x:String>Auchan</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Picker Style="{StaticResource Main}"
+                    Title="Wybierz sklep"
+                    ItemsSource="{Binding Stores}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedStore}"
+                    />
+
+
 
             <Button Style="{StaticResource MainButton}" 
                 Text="ARCHIWUM VOUCHERÓW"
@@ -37,14 +42,8 @@
                 
             </Button>
 
-            <CollectionView SelectionMode="None">
-                <CollectionView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Wpis 1</x:String>
-                        <x:String>Wpis 2</x:String>
-                        <x:String>Wpis 3</x:String>
-                    </x:Array>
-                </CollectionView.ItemsSource>
+            <CollectionView SelectionMode="None"
+                            ItemsSource="{Binding Vouchers}">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -57,7 +56,7 @@
                                        Text="Kwota"/>
                                 <Label Grid.Row="1" Grid.Column="0"
                                        Style="{StaticResource Header}"
-                                       Text="12.50zł" 
+                                       Text="{Binding Amount, StringFormat='{0:F2} zł'}" 
                                        TextColor="{StaticResource PrimaryColor}"/>
 
                                 <Label Grid.Row="0" Grid.Column="1"
@@ -67,7 +66,8 @@
                                 <Label Grid.Row="1" Grid.Column="1"
                                        Style="{StaticResource Header}"
                                        HorizontalOptions="End"
-                                       Text="12.09"/>
+                                       Text="{Binding ExpiryDate, StringFormat='{0:dd.MM}'}"
+                                       TextColor="{Binding ExpiryDate, Converter={StaticResource DateColorConv}}"/>
 
                                 <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2" Spacing="5" Margin="0,10,0,0">
                                     <Button Style="{StaticResource MainButton}" 

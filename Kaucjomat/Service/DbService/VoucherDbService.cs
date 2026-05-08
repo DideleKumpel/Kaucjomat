@@ -1,7 +1,7 @@
 ﻿using Kaucjomat.Data;
 using Kaucjomat.Model;
 
-namespace Kaucjomat.Service
+namespace Kaucjomat.Service.DbService
 {
     public class VoucherDbService : IVoucherDbService
     {

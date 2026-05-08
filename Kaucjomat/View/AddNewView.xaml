@@ -29,8 +29,8 @@
                Text="Kwota"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
-            <Entry PlaceholderColor="{StaticResource TextColor}"
-               Text="{Binding Amount}"  FontSize="32" Keyboard="Numeric" />
+            <Entry Style="{StaticResource MainEntry}"
+               Text="{Binding Amount}" Keyboard="Numeric" />
 
         <Label Style="{StaticResource Header}"
                Text="Termin ważności"
@@ -44,8 +44,8 @@
                Text="Kod kreskowy"
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
-        <Entry PlaceholderColor="{StaticResource TextColor}"
-               Text="{Binding BarcodeValue}"  FontSize="32" Keyboard="Numeric" />
+            <Entry Style="{StaticResource MainEntry}"
+               Text="{Binding BarcodeValue}" Keyboard="Numeric"/>
 
         <Button Style="{StaticResource MainButton}" Text="SKANUJ KOD"/>
         <Button Style="{StaticResource RedBtn}" 

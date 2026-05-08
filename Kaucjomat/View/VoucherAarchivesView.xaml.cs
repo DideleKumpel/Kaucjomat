@@ -1,3 +1,5 @@
+using Kaucjomat.ViewModel;
+
 namespace Kaucjomat.View;
 
 public partial class VoucherAarchivesView : ContentPage

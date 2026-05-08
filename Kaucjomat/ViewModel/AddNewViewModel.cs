@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kaucjomat.Model;
-using Kaucjomat.Service;
-using Kaucjomat.Service;
+using Kaucjomat.Service.DbService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

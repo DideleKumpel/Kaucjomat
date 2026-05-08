@@ -1,5 +1,6 @@
 ﻿using Kaucjomat.Data;
 using Kaucjomat.Service;
+using Kaucjomat.Service.DbService;
 using Kaucjomat.View;
 using Kaucjomat.ViewModel;
 using Microsoft.Extensions.Logging;
@@ -36,6 +37,7 @@ namespace Kaucjomat
             builder.Services.AddTransient<HomeView>();
             
             builder.Services.AddTransient<VouchersView>();
+            builder.Services.AddTransient<VouchersViewModel>();
 
             builder.Services.AddTransient<AddNewViewModel>();
             builder.Services.AddTransient<AddNewView>();
