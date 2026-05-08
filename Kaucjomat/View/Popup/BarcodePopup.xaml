@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:local="clr-namespace:Kaucjomat.View.Popup"
+               xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+               xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+               x:Class="Kaucjomat.View.Popup.BarcodePopup">
+
+    <VerticalStackLayout Spacing="15">
+        <Grid>
+            <Button Text="X" 
+                    Clicked="OnCloseClicked"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    BackgroundColor="Transparent"
+                    TextColor="Gray"
+                    FontSize="20"/>
+
+            <Label Style="{StaticResource Big}"
+                   Text="Kod vouchera" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <Border Padding="10"
+                StrokeShape="RoundRectangle 20">
+            <VerticalStackLayout Spacing="5">
+                <zxing:BarcodeGeneratorView
+                    HeightRequest="150"
+                    WidthRequest="450"
+                    Format="Code128"
+                    Value="{Binding BarcodeValue}" />
+
+                <Label Text="{Binding BarcodeValue}" 
+                   HorizontalOptions="Center"
+                   FontSize="18"
+                   CharacterSpacing="2"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Style="{StaticResource Medium}"
+                   Text="Warość vouchera" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+        <Label Style="{StaticResource Header}"
+               Text="{Binding Amount, StringFormat='{0:F2} zł'}" 
+               TextColor="{StaticResource PrimaryColor}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Button Style="{StaticResource RedBtn}"
+                Text="Zamknij"
+                Clicked="OnCloseClicked"/>
+    </VerticalStackLayout>
+</toolkit:Popup>

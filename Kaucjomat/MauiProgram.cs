@@ -1,9 +1,11 @@
-﻿using Kaucjomat.Data;
+﻿using CommunityToolkit.Maui;
+using Kaucjomat.Data;
 using Kaucjomat.Service;
 using Kaucjomat.Service.DbService;
 using Kaucjomat.View;
 using Kaucjomat.ViewModel;
 using Microsoft.Extensions.Logging;
+using ZXing.Net.Maui.Controls;
 
 namespace Kaucjomat
 {
@@ -14,6 +16,8 @@ namespace Kaucjomat
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseBarcodeReader()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

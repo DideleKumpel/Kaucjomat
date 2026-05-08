@@ -4,7 +4,8 @@
              xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
              xmlns:converters="clr-namespace:Kaucjomat.Converters"
              x:DataType="vm:VouchersViewModel"
-             x:Class="Kaucjomat.View.VouchersView">
+             x:Class="Kaucjomat.View.VouchersView"
+             x:Name="VouchersViewPage">
     
     <ContentPage.Resources>
         <converters:DateToColorConverter x:Key="DateColorConv" />
@@ -73,11 +74,15 @@
                                     <Button Style="{StaticResource MainButton}" 
                                             Text="WYŚWIETL KOD"
                                             ImageSource="view.png"
-                                            ContentLayout="Left, 10"/>
+                                            ContentLayout="Left, 10"
+                                            Command="{Binding BindingContext.ShowVoucherCodeCommand, Source={x:Reference VouchersViewPage}}"
+                                            CommandParameter="{Binding BindingContext, Source={RelativeSource Self}}"/>
                                     <Button Style="{StaticResource RedBtn}" 
                                             Text="WYKORZYSTANY"
                                             ImageSource="check.png"
-                                            ContentLayout="Left, 10"/>
+                                            ContentLayout="Left, 10"
+                                            Command="{Binding BindingContext.ChangeVoucherStatusToUsedCommand, Source={x:Reference VouchersViewPage}}"
+                                            CommandParameter="{Binding BindingContext, Source={RelativeSource Self}}"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>

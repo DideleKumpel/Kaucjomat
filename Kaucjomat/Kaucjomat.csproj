@@ -66,6 +66,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="14.1.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="10.0.7" />
@@ -74,6 +75,8 @@
 		<PackageReference Include="SQLite" Version="3.13.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="System.Diagnostics.DiagnosticSource" Version="11.0.0-preview.3.26207.106" />
+		<PackageReference Include="ZXing.Net.Maui" Version="0.7.4" />
+		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.7.4" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -90,6 +93,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\HomeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Popup\BarcodePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\VoucherAarchivesView.xaml">

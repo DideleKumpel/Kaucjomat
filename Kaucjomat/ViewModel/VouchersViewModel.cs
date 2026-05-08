@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Extensions;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kaucjomat.Model;
 using Kaucjomat.Service.DbService;
+using Kaucjomat.View.Popup;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,9 +51,9 @@ namespace Kaucjomat.ViewModel
         }
 
         [RelayCommand]
-        private async void LoadVouchersByStore()
+        private async Task LoadVouchersByStore()
         {
-            var vouchers = await _voucherDbService.GetAllVouchersAsync();
+            var vouchers = await _voucherDbService.GetActiveVouchersAsync();
 
             if (SelectedStore != null && SelectedStore.Id != 0)
             {
@@ -61,6 +63,26 @@ namespace Kaucjomat.ViewModel
 
 
             Vouchers = new ObservableCollection<Voucher>(vouchers.OrderBy(v => v.ExpiryDate));
+        }
+
+        [RelayCommand]
+        private async void ChangeVoucherStatusToUsed(Voucher voucher)
+        {
+            if (voucher == null)
+                return;
+            voucher.IsUsed = true;
+            await _voucherDbService.UpdateVoucherAsync(voucher);
+            await LoadVouchersByStore();
+        }
+
+        [RelayCommand]
+        private void ShowVoucherCode(Voucher voucher)
+        {
+            if (voucher == null) return;
+
+            var popup = new BarcodePopup(voucher);
+
+            Application.Current.MainPage.ShowPopup(popup);
         }
     }
 }
