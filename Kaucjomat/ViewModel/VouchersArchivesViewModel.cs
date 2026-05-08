@@ -11,17 +11,17 @@ using System.Text;
 
 namespace Kaucjomat.ViewModel
 {
-    public partial class VouchersViewModel : ObservableObject
+    public partial class VouchersArchivesViewModel: ObservableObject
     {
         private readonly IVoucherDbService _voucherDbService;
         private readonly IStoreDbService _storeDbService;
 
-        public VouchersViewModel(IVoucherDbService voucherDbService, IStoreDbService storeDbService)
+        public VouchersArchivesViewModel(IVoucherDbService voucherDbService, IStoreDbService storeDbService)
         {
             _voucherDbService = voucherDbService;
             _storeDbService = storeDbService;
 
-            
+
             LoadStoresCommand.Execute(null);
             LoadVouchersByStoreCommand.Execute(null);
         }
@@ -44,16 +44,16 @@ namespace Kaucjomat.ViewModel
         [RelayCommand]
         private async void LoadStores()
         {
-            var stores = await _storeDbService.GetStoresAsync();          
+            var stores = await _storeDbService.GetStoresAsync();
             Stores = new ObservableCollection<Store>(stores);
-            Stores.Insert(0, new Store() { Id = 0, Name = "Wszystkie"});
+            Stores.Insert(0, new Store() { Id = 0, Name = "Wszystkie" });
             SelectedStore = Stores[0];
         }
 
         [RelayCommand]
         private async Task LoadVouchersByStore()
         {
-            var vouchers = await _voucherDbService.GetActiveVouchersAsync();
+            var vouchers = await _voucherDbService.GetArchivedVouchersAsync();
 
             if (SelectedStore != null && SelectedStore.Id != 0)
             {
@@ -66,11 +66,11 @@ namespace Kaucjomat.ViewModel
         }
 
         [RelayCommand]
-        private async void ChangeVoucherStatusToUsed(Voucher voucher)
+        private async void ChangeVoucherStatusToUnused(Voucher voucher)
         {
             if (voucher == null)
                 return;
-            voucher.IsUsed = true;
+            voucher.IsUsed = false;
             await _voucherDbService.UpdateVoucherAsync(voucher);
             await LoadVouchersByStore();
         }
@@ -86,9 +86,9 @@ namespace Kaucjomat.ViewModel
         }
 
         [RelayCommand]
-        private async Task GoToVouchersArchives()
+        private async Task GoToVouchers()
         {
-            await Shell.Current.GoToAsync("VouchersArchives");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Kaucjomat
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(AddNewView), typeof(AddNewView));
+            Routing.RegisterRoute("VouchersArchives", typeof(VouchersArchivesView));
         }
     }
 }

@@ -4,7 +4,7 @@
              x:Class="Kaucjomat.View.HomeView"
              >
     <Shell.TitleView>
-        <Label Text="Home"
+        <Label Text="HOME"
            TextColor="{StaticResource SecondaryTextColor}"
            FontSize="32"
            FontAttributes="Bold"

@@ -39,7 +39,8 @@
             <Button Style="{StaticResource MainButton}" 
                 Text="ARCHIWUM VOUCHERÓW"
                 ImageSource="archive.png"
-                ContentLayout="Left, 10">
+                ContentLayout="Left, 10"
+                Command="{Binding GoToVouchersArchivesCommand}">
                 
             </Button>
 
@@ -50,7 +51,7 @@
                     <DataTemplate>
                         <Border Margin="10" Padding="15" StrokeShape="RoundRectangle 10">
                             <Grid RowDefinitions="Auto, Auto, Auto" 
-                                 ColumnDefinitions="*, 2*">
+                                 ColumnDefinitions="auto, *">
 
                                 <Label Grid.Row="0" Grid.Column="0"
                                        Style="{StaticResource Header}"

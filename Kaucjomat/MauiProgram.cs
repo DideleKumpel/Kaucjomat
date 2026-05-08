@@ -43,6 +43,9 @@ namespace Kaucjomat
             builder.Services.AddTransient<VouchersView>();
             builder.Services.AddTransient<VouchersViewModel>();
 
+            builder.Services.AddTransient<VouchersArchivesView>();
+            builder.Services.AddTransient<VouchersArchivesViewModel>();
+
             builder.Services.AddTransient<AddNewViewModel>();
             builder.Services.AddTransient<AddNewView>();
             
