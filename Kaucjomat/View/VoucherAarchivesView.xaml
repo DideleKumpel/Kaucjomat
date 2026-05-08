@@ -5,7 +5,7 @@
              Title="VoucherAarchivesView">
     <Shell.TitleView>
         <Label Text="TWOJE VOUCHERY"
-               TextColor="{StaticResource PrimaryColor}"
+               TextColor="{StaticResource SecondaryTextColor}"
                FontSize="32"
                FontAttributes="Bold"
                HorizontalOptions="Center"

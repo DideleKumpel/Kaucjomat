@@ -6,7 +6,7 @@
              x:DataType="vm:AddNewViewModel">
     <Shell.TitleView>
         <Label Text="DODAJ VOUCHER"
-               TextColor="{StaticResource PrimaryColor}"
+               TextColor="{StaticResource SecondaryTextColor}"
                FontSize="32"
                FontAttributes="Bold"
                HorizontalOptions="Center"

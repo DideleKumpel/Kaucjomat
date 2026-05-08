@@ -5,7 +5,7 @@
              >
     <Shell.TitleView>
         <Label Text="Home"
-           TextColor="{StaticResource PrimaryColor}"
+           TextColor="{StaticResource SecondaryTextColor}"
            FontSize="32"
            FontAttributes="Bold"
            HorizontalOptions="Center"
@@ -26,29 +26,48 @@
             </Grid.RowDefinitions>
 
             <Border Grid.ColumnSpan="2"
-                   BackgroundColor="{StaticResource TertiaryBackgroundColor}"
+                   BackgroundColor="{StaticResource BackgroundColor}"
                    Margin="10" StrokeShape="RoundRectangle 30"
                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.2" />
+                </Border.Shadow>
                 <StackLayout Orientation="Vertical" Spacing="20">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="wallet.png" WidthRequest="32" HeightRequest="32"/>
+                        <Label Style="{StaticResource Header}"
+                           Text="Twoje środki:"/>
+                    </StackLayout>
+                    
                     <Label Style="{StaticResource Header}"
-
-                    Text="Twoje środki:"/>
-                    <Label Style="{StaticResource Header}"
-                       FontSize="42"
-                       Text="45,71 zł"/>
+                           FontSize="42" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}"
+                           Text="45,71 zł"/>
                 </StackLayout>
 
             </Border>
 
             <Border Grid.Row="1"
-                BackgroundColor="{StaticResource TertiaryBackgroundColor}"
+                BackgroundColor="{StaticResource BackgroundColor}"
                 Margin="10" StrokeShape="RoundRectangle 30"
                 Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.2" />
+                </Border.Shadow>
                 <StackLayout Orientation="Vertical" Spacing="20">
-                    <Label Style="{StaticResource Big}"
-                       Text="Vouchery"/>
-                    <Label Style="{StaticResource Header}"
-                       FontSize="42"
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="coupon.png" WidthRequest="32" HeightRequest="32"/>
+                        <Label Style="{StaticResource Big}"
+                               HorizontalTextAlignment="Center"
+                               Text="Vouchery"/>
+                    </StackLayout>
+                    <Label Style="{StaticResource Medium}"
+                       FontSize="42" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}"
                        HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
                        Text="12"/>
                 </StackLayout>
@@ -56,14 +75,30 @@
             </Border>
 
             <Border Grid.Row="1" Grid.Column="1"
-                    BackgroundColor="{StaticResource TertiaryBackgroundColor}"
+                    BackgroundColor="{StaticResource BackgroundColor}"
                     Margin="10" StrokeShape="RoundRectangle 30"
                     Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.2" />
+                </Border.Shadow>
                 <StackLayout Orientation="Vertical" Spacing="20">
-                    <Label Style="{StaticResource Medium}"
-                        Text="Najbliższy termin ważności"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="calendar.png" WidthRequest="32" HeightRequest="32"/>
+                        <Label Grid.Column="1" 
+                               Style="{StaticResource Medium}" 
+                               HorizontalTextAlignment="Center"
+                               Text="Najbliższy termin"/>
+                    </Grid>
                     <Label Style="{StaticResource Header}"
-                        FontSize="42"
+                        FontSize="42" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}"
                         HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
                         Text="03.12"/>
                 </StackLayout>
@@ -71,38 +106,57 @@
             </Border>
             
             <Border Grid.ColumnSpan="2" Grid.Row="2"
-                    BackgroundColor="{StaticResource TertiaryBackgroundColor}"
+                    BackgroundColor="{StaticResource BackgroundColor}"
                     Margin="10" StrokeShape="RoundRectangle 30"
                     Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.2" />
+                </Border.Shadow>
                 <StackLayout Orientation="Vertical" Spacing="20">
-                    <Label Style="{StaticResource Header}"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="42"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                        Text="Łącznie zaoszczędzono:"/>
+                        <Image Source="increase.png" WidthRequest="32" HeightRequest="32"/>
+                        <Label Grid.Column="1" 
+                               Style="{StaticResource Big}"
+                               VerticalOptions="CenterAndExpand"
+                               Text="Łącznie zaoszczędzono:"/>
+                    </Grid>
                     <Label Style="{StaticResource Header}"
-                            FontSize="42"
+                            FontSize="42" FontAttributes="Bold" TextColor="{StaticResource PrimaryColor}"
                             Text="1245,71 zł"/>
                 </StackLayout>
             </Border>
 
-            <Border Grid.ColumnSpan="2" Grid.Row="2"
-                    BackgroundColor="{StaticResource TertiaryBackgroundColor}"
-                    Margin="10" StrokeShape="RoundRectangle 30"
-                    Padding="20">
-                <StackLayout Orientation="Vertical" Spacing="20">
-                    <Label Style="{StaticResource Header}"
-                           Text="Łącznie zaoszczędzono:"/>
-                    <Label Style="{StaticResource Header}"
-                           FontSize="42"
-                           Text="1245,71 zł"/>
-                </StackLayout>
-            </Border>
             <Border Grid.ColumnSpan="2" Grid.Row="3"
-                    BackgroundColor="{StaticResource TertiaryBackgroundColor}"
+                    BackgroundColor="{StaticResource BackgroundColor}"
                     Margin="10" StrokeShape="RoundRectangle 30"
                     Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.2" />
+                </Border.Shadow>
                 <StackLayout Orientation="Vertical" Spacing="20">
-                    <Label Style="{StaticResource Header}"
-                        Text="Vouchery w sklepach"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="42"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="shop.png" WidthRequest="32" HeightRequest="32"/>
+                        <Label Grid.Column="1" 
+                               Style="{StaticResource Big}"
+                               VerticalOptions="CenterAndExpand"
+                               Text="Vouchery w sklepach"/>
+                    </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -149,7 +203,7 @@
                                  HorizontalOptions="Fill">
                             <BoxView.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="{StaticResource TertiaryBackgroundColor}" Offset="0.1" />
+                                    <GradientStop Color="{StaticResource BackgroundColor}" Offset="0.1" />
                                     <GradientStop Color="Transparent" Offset="1.0" />
                                 </LinearGradientBrush>
                             </BoxView.Background>
@@ -163,7 +217,7 @@
                             <BoxView.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                     <GradientStop Color="Transparent" Offset="0.0" />
-                                    <GradientStop Color="{StaticResource TertiaryBackgroundColor}" Offset="0.9" />
+                                    <GradientStop Color="{StaticResource BackgroundColor}" Offset="0.9" />
                                 </LinearGradientBrush>
                             </BoxView.Background>
                         </BoxView>

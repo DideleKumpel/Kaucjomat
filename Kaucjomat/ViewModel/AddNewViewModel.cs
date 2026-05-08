@@ -73,5 +73,13 @@ namespace Kaucjomat.ViewModel
 
             await _voucherService.AddVoucherAsync(newVoucher);
         }
+
+        private async Task ReadBarcodeFromCamera()
+        {
+            // Implement barcode reading from camera here
+            // This is a placeholder for the actual implementation
+            await Task.Delay(1000); // Simulate some delay
+            BarcodeValue = "1234567890123"; // Example barcode value
+        }
     }
 }

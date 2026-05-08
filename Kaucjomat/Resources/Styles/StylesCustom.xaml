@@ -26,7 +26,7 @@
 
     <Style x:Key="MainButton" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
-        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
         <Setter Property="FontSize" Value="Medium"/>
         <Setter Property="CornerRadius" Value="17"/>
         <Setter Property="BorderWidth" Value="5" />
@@ -142,8 +142,8 @@
     <Style TargetType="TabBar">
         <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
         <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TextColor}"/>
-        <Setter Property="Shell.TitleColor" Value="{StaticResource PrimaryColor}"/>
-        <Setter Property="Shell.BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+        <Setter Property="Shell.TitleColor" Value="{StaticResource SecondaryTextColor}"/>
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}"/>
         <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource PrimaryColor}"/>
         <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource PrimaryColor}"/>
     </Style>

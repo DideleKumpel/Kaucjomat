@@ -8,13 +8,13 @@
     Title="Kaucjomat">
 
     <TabBar>
-        <Tab Title="Home">
+        <Tab Title="Home" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
-        <Tab Title="Vouchers">
+        <Tab Title="Vouchery" Icon="coupon_grey.png">
             <ShellContent ContentTemplate="{DataTemplate views:VouchersView}"/>
         </Tab>
-        <Tab Title="Add">
+        <Tab Title="Dodaj" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate views:AddNewView}"/>
         </Tab>
     </TabBar>
