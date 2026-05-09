@@ -1,12 +1,15 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Kaucjomat.Model
 {
-    public class StoreActiveVoucherSummary
+    public partial class StoreActiveVoucherSummary : ObservableObject
     {
-        public string StoreName { get; set; }
-        public int ActiveVouchersCount { get; set; }
+        [ObservableProperty]
+        private string _storeName;
+        [ObservableProperty]
+        private int _activeVouchersCount;
     }
 }

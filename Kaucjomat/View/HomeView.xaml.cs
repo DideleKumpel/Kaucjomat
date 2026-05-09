@@ -10,13 +10,13 @@ public partial class HomeView : ContentPage
 		BindingContext = vm;
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
         if (BindingContext is HomeViewModel vm)
         {
-            vm.RefreshAll();
+            await vm.RefreshAll();
         }
     }
 }

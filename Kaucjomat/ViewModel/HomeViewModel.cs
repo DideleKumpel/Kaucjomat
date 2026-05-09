@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Kaucjomat.Model;
 using Kaucjomat.Service.DbService;
 using System.Collections.ObjectModel;
@@ -16,8 +17,7 @@ namespace Kaucjomat.ViewModel
             _voucherDbService = voucherDbService;
             _storeDbService = storeDbService;
 
-            RefreshAll();
-
+            StoreActiveVoucherSummariesList = new ObservableCollection<StoreActiveVoucherSummary>();
         }
 
         [ObservableProperty]
@@ -38,7 +38,13 @@ namespace Kaucjomat.ViewModel
         private async Task RefreshSummaries()
         {
             var summaries = await _voucherDbService.GetActiveVouchersSummaryAsync();
-            StoreActiveVoucherSummariesList = new ObservableCollection<StoreActiveVoucherSummary>(summaries);
+
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                StoreActiveVoucherSummariesList.Clear();
+                foreach (var s in summaries)
+                    StoreActiveVoucherSummariesList.Add(s);
+            });
         }
 
         private async Task RefreshFunds()
@@ -62,13 +68,14 @@ namespace Kaucjomat.ViewModel
             NearestExpirationDate = voucher != null ? voucher.ExpiryDate : DateTime.MaxValue;
         }
 
+        [RelayCommand]
         public async Task RefreshAll()
         {
+            await RefreshSummaries();
             await RefreshFunds();
             await RefreshSaved();
             await RefreshActiveCount();
-            await RefreshNearestExpiration();
-            await RefreshSummaries();
+            await RefreshNearestExpiration(); 
         }
     }
 }

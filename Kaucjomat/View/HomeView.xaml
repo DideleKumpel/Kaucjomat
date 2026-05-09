@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
+             xmlns:model="clr-namespace:Kaucjomat.Model"
              xmlns:converters="clr-namespace:Kaucjomat.Converters"
              x:DataType="vm:HomeViewModel"
              x:Class="Kaucjomat.View.HomeView"
@@ -177,7 +178,7 @@
                                         ItemsLayout="HorizontalList"
                                         ItemsSource="{Binding StoreActiveVoucherSummariesList}">
                             <CollectionView.ItemTemplate>
-                                <DataTemplate>
+                                <DataTemplate x:DataType="model:StoreActiveVoucherSummary">
                                     <Border Margin="10,0"
                                             Padding="15,5" 
                                             StrokeShape="RoundRectangle 20" StrokeThickness="2"
