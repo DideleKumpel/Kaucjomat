@@ -1,4 +1,4 @@
-================================================================================
+
   KAUCJOMAT
 ================================================================================
 
@@ -10,7 +10,7 @@
   The name "Kaucjomat" is a blend of the Polish words "kaucja" (deposit)
   and "automat" (machine/vending machine).
 
-================================================================================
+
   TECH STACK
 ================================================================================
 
@@ -21,7 +21,7 @@
   - CommunityToolkit.Mvvm .. MVVM with source generators
   - CommunityToolkit.Maui .. UI components including Popups
 
-================================================================================
+
   SCREENS
 ================================================================================
 
@@ -60,7 +60,7 @@
   - Delete stores with confirmation (also removes linked vouchers)
   - Store counter
 
-================================================================================
+
   ARCHITECTURE
 ================================================================================
 
@@ -106,7 +106,7 @@
   Data is passed between views using WeakReferenceMessenger from
   CommunityToolkit.Mvvm, keeping components loosely coupled.
 
-================================================================================
+
   DATA MODELS
 ================================================================================
 
@@ -125,7 +125,7 @@
   - Name ............... string    Store name
   - IsUserDefined ...... bool      Whether the store was added by the user
 
-================================================================================
+
   FEATURES
 ================================================================================
 
@@ -140,7 +140,7 @@
   [x] Form validation with error messages
   [x] Local database -- works fully offline
 
-================================================================================
+
   GETTING STARTED
 ================================================================================
 
@@ -165,7 +165,7 @@
   Alternatively, open the .sln file in Visual Studio and run directly
   from the IDE by selecting your target platform.
 
-================================================================================
+
   LICENSE
 ================================================================================
 
@@ -175,7 +175,7 @@
 
 
 
-================================================================================
+
   KAUCJOMAT
 ================================================================================
 
@@ -184,7 +184,7 @@
   wartosc i daty waznosci oraz skanowac kody kreskowe bez koniecznosci
   trzymania papierowych paragonow.
 
-================================================================================
+
   TECHNOLOGIE
 ================================================================================
 
@@ -195,7 +195,7 @@
   - CommunityToolkit.Mvvm .. Implementacja MVVM z generowanym kodem
   - CommunityToolkit.Maui .. Komponenty UI, m.in. Popupy
 
-================================================================================
+
   WIDOKI
 ================================================================================
 
@@ -234,7 +234,7 @@
   - Usuwanie sklepow z potwierdzeniem (kasuje tez powiazane vouchery)
   - Licznik zarejestrowanych sklepow
 
-================================================================================
+
   ARCHITEKTURA
 ================================================================================
 
@@ -280,7 +280,7 @@
   Do przekazywania danych miedzy widokami uzywany jest WeakReferenceMessenger
   z CommunityToolkit.Mvvm, co zapewnia luznie powiazanie komponentow.
 
-================================================================================
+
   MODEL DANYCH
 ================================================================================
 
@@ -299,7 +299,7 @@
   - Name ............... string    Nazwa sklepu
   - IsUserDefined ...... bool      Czy sklep dodany przez uzytkownika
 
-================================================================================
+
   FUNKCJONALNOSCI
 ================================================================================
 
@@ -314,7 +314,7 @@
   [x] Walidacja formularzy z komunikatami bledow
   [x] Lokalna baza danych -- dziala offline
 
-================================================================================
+
   URUCHOMIENIE
 ================================================================================
 
@@ -339,11 +339,11 @@
   Mozna rowniez otworzyc plik .sln w Visual Studio i uruchomic bezposrednio
   z IDE, wybierajac docelowa platforme.
 
-================================================================================
+
   LICENCJA
 ================================================================================
 
   Projekt dostepny na licencji MIT.
   Szczegoly w pliku LICENSE.
 
-================================================================================
+
