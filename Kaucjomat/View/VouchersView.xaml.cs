@@ -9,4 +9,15 @@ public partial class VouchersView : ContentPage
 		InitializeComponent();
         BindingContext = vm;
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Sprawdzamy, czy BindingContext to nasz ViewModel
+        if (BindingContext is VouchersViewModel vm)
+        {
+            vm.RefreshData();
+        }
+    }
 }

@@ -16,16 +16,7 @@ namespace Kaucjomat.ViewModel
             _voucherDbService = voucherDbService;
             _storeDbService = storeDbService;
 
-             //RefreshFundsCommand.Execute(null);
-             //RefreshActiveCountCommand.Execute(null);
-             //RefreshNearestExpirationCommand.Execute(null);
-             //RefreshSavedCommand.Execute(null);
-             //RefreshSummariesCommand.Execute(null);
-             RefreshActiveCount();
-             RefreshFunds();
-             RefreshNearestExpiration();
-             RefreshSaved();
-             RefreshSummaries();
+            RefreshAll();
 
         }
 
@@ -69,6 +60,15 @@ namespace Kaucjomat.ViewModel
         {
             var voucher = await _voucherDbService.GetClosestExpiryVoucherAsync();
             NearestExpirationDate = voucher != null ? voucher.ExpiryDate : DateTime.MaxValue;
+        }
+
+        public async Task RefreshAll()
+        {
+            await RefreshFunds();
+            await RefreshSaved();
+            await RefreshActiveCount();
+            await RefreshNearestExpiration();
+            await RefreshSummaries();
         }
     }
 }

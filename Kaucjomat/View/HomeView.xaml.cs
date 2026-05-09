@@ -9,4 +9,14 @@ public partial class HomeView : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (BindingContext is HomeViewModel vm)
+        {
+            vm.RefreshAll();
+        }
+    }
 }

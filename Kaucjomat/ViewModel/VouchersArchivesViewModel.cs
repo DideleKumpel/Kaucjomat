@@ -42,7 +42,7 @@ namespace Kaucjomat.ViewModel
 
 
         [RelayCommand]
-        private async void LoadStores()
+        private async Task LoadStores()
         {
             var stores = await _storeDbService.GetStoresAsync();
             Stores = new ObservableCollection<Store>(stores);
@@ -89,6 +89,12 @@ namespace Kaucjomat.ViewModel
         private async Task GoToVouchers()
         {
             await Shell.Current.GoToAsync("..");
+        }
+
+        public async Task RefreshData()
+        {
+            await LoadStores();
+            await LoadVouchersByStore();
         }
     }
 }
