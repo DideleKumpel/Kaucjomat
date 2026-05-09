@@ -86,6 +86,9 @@
 	  <Compile Update="Resources\Styles\StylesCustom.xaml.cs">
 	    <DependentUpon>StylesCustom.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\Popup\MessagePopup.xaml.cs">
+	    <DependentUpon>MessagePopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\VouchersArchivesView.xaml.cs">
 	    <DependentUpon>VouchersArchivesView.xaml</DependentUpon>
 	  </Compile>
@@ -102,6 +105,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Popup\BarcodePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Popup\MessagePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\VouchersArchivesView.xaml">

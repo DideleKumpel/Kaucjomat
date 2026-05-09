@@ -1,12 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Extensions;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Kaucjomat.Messages;
 using Kaucjomat.Model;
 using Kaucjomat.Service.DbService;
+using Kaucjomat.View.Popup;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Text;
 
 namespace Kaucjomat.ViewModel
@@ -52,16 +55,25 @@ namespace Kaucjomat.ViewModel
         {
             if (SelectedStore == null)
             {
-                await Shell.Current.DisplayAlertAsync("Error", "Wybierz sklep", "OK");
-                return;
-            }else if(string.IsNullOrWhiteSpace(BarcodeValue))
-            {
-                await Shell.Current.DisplayAlertAsync("Error", "Wypełnij kod kreskowy", "OK");
+                var popup = new MessagePopup("Bład", "Wybierz sklep");
+                Application.Current.MainPage.ShowPopup(popup);
                 return;
             }
-            else if(Amount <= 0)
+            else if (Amount <= 0)
             {
-                await Shell.Current.DisplayAlertAsync("Error", "Dodaj kwote", "OK");
+                var popup = new MessagePopup("Bład", "Dodaj kwotę");
+                Application.Current.MainPage.ShowPopup(popup);
+                return;
+            }else if (ExpiryDate < DateTime.Now)
+            {
+                var popup = new MessagePopup("Bład", "Voucher jest już przeterminowany");
+                Application.Current.MainPage.ShowPopup(popup);
+                return;
+            }
+            else if(string.IsNullOrWhiteSpace(BarcodeValue))
+            {
+                var popup = new MessagePopup("Bład", "Wypełnij kod kreskowy");
+                Application.Current.MainPage.ShowPopup(popup);
                 return;
             }
 
