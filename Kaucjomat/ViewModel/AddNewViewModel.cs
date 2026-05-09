@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Kaucjomat.Messages;
 using Kaucjomat.Model;
 using Kaucjomat.Service.DbService;
 using System;
@@ -9,7 +11,7 @@ using System.Text;
 
 namespace Kaucjomat.ViewModel
 {
-    public partial class AddNewViewModel: ObservableObject
+    public partial class AddNewViewModel: ObservableObject, IRecipient<BarcodeScannedMessage>
     {
         private readonly IVoucherDbService _voucherService;
         private readonly IStoreDbService _storeService;
@@ -34,6 +36,8 @@ namespace Kaucjomat.ViewModel
             _voucherService = voucherService;
             _storeService = storeService;
             LoadStoresCommand.Execute(null);
+
+            WeakReferenceMessenger.Default.RegisterAll(this);
         }
 
         [RelayCommand]
@@ -73,12 +77,15 @@ namespace Kaucjomat.ViewModel
             await _voucherService.AddVoucherAsync(newVoucher);
         }
 
+        [RelayCommand]
         private async Task ReadBarcodeFromCamera()
         {
-            // Implement barcode reading from camera here
-            // This is a placeholder for the actual implementation
-            await Task.Delay(1000); // Simulate some delay
-            BarcodeValue = "1234567890123"; // Example barcode value
+            await Shell.Current.GoToAsync("BarcodeScannerView");
+        }
+
+        public void Receive(BarcodeScannedMessage message)
+        {
+            BarcodeValue = message.Value;
         }
     }
 }

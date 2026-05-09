@@ -80,7 +80,8 @@
             </Border>
             
             <Button Style="{StaticResource MainButton}" 
-                    Text="SKANUJ KOD"/>
+                    Text="SKANUJ KOD"
+                    Command="{Binding ReadBarcodeFromCameraCommand}"/>
             <Button Style="{StaticResource RedBtn}" 
                     Text="Dodaj"
                     Command="{Binding SaveVoucherCommand}"/>

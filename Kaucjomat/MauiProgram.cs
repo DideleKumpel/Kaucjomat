@@ -48,6 +48,8 @@ namespace Kaucjomat
 
             builder.Services.AddTransient<AddNewViewModel>();
             builder.Services.AddTransient<AddNewView>();
+
+            builder.Services.AddTransient<BarcodeScannerView>();
             
 
             builder.Services.AddSingleton<AppShell>();

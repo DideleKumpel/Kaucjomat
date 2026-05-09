@@ -9,6 +9,7 @@ namespace Kaucjomat
         {
             InitializeComponent();
             Routing.RegisterRoute("VouchersArchives", typeof(VouchersArchivesView));
+            Routing.RegisterRoute("BarcodeScannerView", typeof(BarcodeScannerView));
         }
     }
 }

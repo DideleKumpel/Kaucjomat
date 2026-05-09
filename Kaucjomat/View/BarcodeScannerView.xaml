@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="Kaucjomat.View.BarcodeScannerView">
+    <Shell.TabBarIsVisible>False</Shell.TabBarIsVisible>
+    <Shell.TitleView>
+        <Label Text="ZESKANUJ KOD"
+           TextColor="{StaticResource SecondaryTextColor}"
+           FontSize="32"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           HorizontalTextAlignment="Center" />
+    </Shell.TitleView>
+    <Grid>
+        <!-- Widok z kamery -->
+        <zxing:CameraBarcodeReaderView
+            x:Name="barcodeReader"
+            BarcodesDetected="OnBarcodesDetected" />
+
+        <!-- Nakładka (opcjonalnie) - np. czerwona linia ułatwiająca celowanie -->
+        <BoxView HeightRequest="2" Color="Red" VerticalOptions="Center" Margin="40,0" />
+
+        <Label Text="Umieść kod w ramce" 
+               VerticalOptions="End" 
+               HorizontalOptions="Center" 
+               Margin="20" 
+               TextColor="White" />
+    </Grid>
+</ContentPage>
