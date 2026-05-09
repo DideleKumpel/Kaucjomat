@@ -7,6 +7,6 @@ namespace Kaucjomat.Service.DbService
         Task<IEnumerable<Store>> GetStoresAsync();
         Task<Store> GetStoreByIdAsync(int id);
         Task AddCustomStoreAsync(string storeName);
-        Task DeleteStoreAsync(int id);
+        Task DeleteStoreAsync(int id, bool deleteLinkedActiveVoucheres);
     }
 }

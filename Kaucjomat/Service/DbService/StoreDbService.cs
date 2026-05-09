@@ -36,9 +36,18 @@ namespace Kaucjomat.Service.DbService
             await _context.SaveStoreAsync(newStore);
         }
 
-        public async Task DeleteStoreAsync(int id)
+        public async Task DeleteStoreAsync(int id, bool deleteLinkedActiveVoucheres)
         {
-            // to do check if there are any vouchers linked to this store before deleting.
+            var vouchers = await _context.GetVouchersAsync();
+            var vouchersBySotre = vouchers.Where(v => v.StoreId == id);
+            if (!deleteLinkedActiveVoucheres && vouchersBySotre.Any(v => !v.IsUsed))
+            {
+                throw new InvalidOperationException("Shop has active vouchers.");
+            }
+            foreach (Voucher voucher in vouchersBySotre)
+            {
+                await _context.DeleteVoucherAsync(voucher.Id);
+            }
             await _context.DeleteStoreAsync(id);
         }
     }

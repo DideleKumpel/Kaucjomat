@@ -81,9 +81,13 @@
             
             <Button Style="{StaticResource MainButton}" 
                     Text="SKANUJ KOD"
+                    ImageSource="scanner.png"
+                    ContentLayout="Left, 10"
                     Command="{Binding ReadBarcodeFromCameraCommand}"/>
             <Button Style="{StaticResource RedBtn}" 
                     Text="Dodaj"
+                    ImageSource="add_white.png"
+                    ContentLayout="Left, 10"
                     Command="{Binding SaveVoucherCommand}"/>
     </VerticalStackLayout>
     </ScrollView>

@@ -50,6 +50,9 @@ namespace Kaucjomat
             builder.Services.AddTransient<AddNewViewModel>();
             builder.Services.AddTransient<AddNewView>();
 
+            builder.Services.AddTransient<ShopsView>();
+            builder.Services.AddTransient<ShopsViewModel>();
+
             builder.Services.AddTransient<BarcodeScannerView>();
             
 

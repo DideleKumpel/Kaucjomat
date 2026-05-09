@@ -17,6 +17,9 @@
         <Tab Title="Dodaj" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate views:AddNewView}"/>
         </Tab>
+        <Tab Title="Sklepy" Icon="shop.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ShopsView}"/>
+        </Tab>
     </TabBar>
 
 </Shell>

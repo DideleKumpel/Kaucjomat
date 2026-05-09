@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
+             x:DataType="vm:ShopsViewModel"
+             x:Class="Kaucjomat.View.ShopsView"
+             x:Name="ShopsViewPage"
+             BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+    <Shell.TitleView>
+        <Label Text="SKLEPY"
+           TextColor="{StaticResource SecondaryTextColor}"
+           FontSize="32"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           HorizontalTextAlignment="Center" />
+    </Shell.TitleView>
+    <Grid RowDefinitions="auto, *">
+        <VerticalStackLayout Padding="15" Spacing="10">
+        <Label Style="{StaticResource Big}"
+               Text="Dodaj nowy sklep"
+               VerticalOptions="Center" 
+               HorizontalOptions="Start" />
+        
+        <Border Padding="15,5" 
+        StrokeShape="RoundRectangle 20" StrokeThickness="2"
+        BackgroundColor="{StaticResource BackgroundColor}"
+        >
+            <Grid ColumnDefinitions="*, auto">
+                <Entry Style="{StaticResource MainEntry}"
+                       Placeholder="Nazwa sklepu"
+                       Text="{Binding StoreName}" 
+                       MaxLength="10">
+                </Entry>
+            </Grid>
+        </Border>
+
+        <Button Style="{StaticResource RedBtn}" 
+                Text="Dodaj sklep"
+                ImageSource="add_white.png"
+                ContentLayout="Left, 10"
+                Command="{Binding AddStoreCommand}"/>
+
+        <Label Style="{StaticResource Big}"
+               Margin="0,20,0,0"
+               Text="Lista sklepów (4)"
+               VerticalOptions="Center" 
+               HorizontalOptions="Start" />
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="1">
+                <CollectionView SelectionMode="None"
+                            ItemsSource="{Binding StoreList}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="0" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Border Margin="0,0,0,10" Padding="15" StrokeShape="RoundRectangle 30" BackgroundColor="{StaticResource BackgroundColor}">
+                                    <Border.Shadow>
+                                        <Shadow Brush="Black"
+                                            Offset="2,5"
+                                            Radius="10"
+                                            Opacity="0.2"
+                                            />
+                                    </Border.Shadow>
+                                    <Grid ColumnDefinitions="auto, *, auto"
+                                      BackgroundColor="Transparent">
+
+                                        <Border Margin="5" StrokeShape="RoundRectangle 15"
+                                            Padding="10">
+                                            <Image Source="shop.png"/>
+                                        </Border>
+
+                                        <Label Grid.Column="1"
+                                           Style="{StaticResource Big}"
+                                           Text="{Binding Name}"
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Start"/>
+
+                                        <ImageButton Grid.Column="3"
+                                                 Source="trash_can.png"
+                                                 Command="{Binding BindingContext.DeleteStoreCommand, Source={x:Reference ShopsViewPage}}"
+                                                 CommandParameter="{Binding BindingContext, Source={RelativeSource Self}}"/>
+
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+    </Grid>
+</ContentPage>

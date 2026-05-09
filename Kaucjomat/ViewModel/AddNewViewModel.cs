@@ -86,7 +86,16 @@ namespace Kaucjomat.ViewModel
                 IsUsed = false
             };
 
-            await _voucherService.AddVoucherAsync(newVoucher);
+            try
+            {
+                await _voucherService.AddVoucherAsync(newVoucher);
+                var popup = new MessagePopup("Sukces", "Voucher został dodany");
+                Application.Current.MainPage.ShowPopup(popup);
+            }
+            catch (Exception ex) {
+                var popup = new MessagePopup("Bład", $"Nie można dodać vouchera: {ex.Message}");
+                Application.Current.MainPage.ShowPopup(popup);
+            }
         }
 
         [RelayCommand]

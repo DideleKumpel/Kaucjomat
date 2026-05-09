@@ -182,16 +182,16 @@
                                             Padding="15,5" 
                                             StrokeShape="RoundRectangle 20" StrokeThickness="2"
                                             BackgroundColor="{StaticResource BackgroundColor}">
-                                    <StackLayout Margin="5" Orientation="Vertical">
+                                            <StackLayout Margin="5" Orientation="Vertical">
 
-                                        <Label  HorizontalOptions="Center" Margin="5"
-                                                Style="{StaticResource Big}"
-                                                Text="{Binding StoreName}"/>
+                                                <Label          HorizontalOptions="Center" Margin="5"
+                                                        Style="{StaticResource Big}"
+                                                        Text="{Binding StoreName}"/>
 
-                                            <Label  HorizontalOptions="Center" Margin="5"
-                                                    Style="{StaticResource Header}"
-                                                    TextColor="{StaticResource PrimaryColor}"
-                                                    Text="{Binding ActiveVouchersCount}"/>
+                                                <Label  HorizontalOptions="Center" Margin="5"
+                                                        Style="{StaticResource Header}"
+                                                        TextColor="{StaticResource PrimaryColor}"
+                                                        Text="{Binding ActiveVouchersCount}"/>
 
                                         </StackLayout>
                                     </Border>
