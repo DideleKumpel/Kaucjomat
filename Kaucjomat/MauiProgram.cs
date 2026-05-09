@@ -39,7 +39,8 @@ namespace Kaucjomat
 
 
             builder.Services.AddTransient<HomeView>();
-            
+            builder.Services.AddTransient<HomeViewModel>();
+
             builder.Services.AddTransient<VouchersView>();
             builder.Services.AddTransient<VouchersViewModel>();
 

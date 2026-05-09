@@ -7,7 +7,6 @@ namespace Kaucjomat.View;
 
 public partial class BarcodeScannerView : ContentPage
 {
-    // Flaga, która zapobiega wielokrotnemu przetwarzaniu kodu
     private bool _isProcessing = false;
 
     public BarcodeScannerView()

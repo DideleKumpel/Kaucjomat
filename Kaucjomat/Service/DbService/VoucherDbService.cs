@@ -104,5 +104,26 @@ namespace Kaucjomat.Service.DbService
             var active = await GetActiveVouchersAsync();
             return active.OrderBy(v => v.ExpiryDate).FirstOrDefault();
         }
+
+        public async Task<List<StoreActiveVoucherSummary>> GetActiveVouchersSummaryAsync()
+        {
+            var vouchers = await GetActiveVouchersAsync();
+            var stores = await _context.GetStoresAsync();
+
+            var storeDict = stores.ToDictionary(s => s.Id, s => s.Name);
+
+            var summary = vouchers
+                .Where(v => storeDict.ContainsKey(v.StoreId))
+                .GroupBy(v => v.StoreId)
+                .Select(group => new StoreActiveVoucherSummary
+                {
+                    StoreName = storeDict[group.Key],
+                    ActiveVouchersCount = group.Count()
+                })
+                .OrderByDescending(res => res.ActiveVouchersCount)
+                .ToList();
+
+            return summary;
+        }
     }
 }

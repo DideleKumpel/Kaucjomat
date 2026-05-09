@@ -1,9 +1,12 @@
+using Kaucjomat.ViewModel;
+
 namespace Kaucjomat.View;
 
 public partial class HomeView : ContentPage
 {
-	public HomeView()
+	public HomeView(HomeViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

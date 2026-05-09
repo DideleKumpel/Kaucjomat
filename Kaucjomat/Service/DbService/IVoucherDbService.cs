@@ -19,5 +19,7 @@ namespace Kaucjomat.Service.DbService
         Task<decimal> GetTotalSavedAmountAsync();
         Task<int> GetActiveCountAsync();
         Task<Voucher> GetClosestExpiryVoucherAsync();
+
+        Task<List<StoreActiveVoucherSummary>> GetActiveVouchersSummaryAsync();
     }
 }
