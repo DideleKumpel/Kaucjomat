@@ -5,6 +5,7 @@
              xmlns:converters="clr-namespace:Kaucjomat.Converters"
              x:DataType="vm:VouchersViewModel"
              x:Class="Kaucjomat.View.VouchersView"
+             BackgroundColor="{StaticResource SecondaryBackgroundColor}"
              x:Name="VouchersViewPage">
     
     <ContentPage.Resources>
@@ -27,12 +28,16 @@
                     Text="Wybierz sklep"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" />
-            <Picker Style="{StaticResource Main}"
-                    Title="Wybierz sklep"
-                    ItemsSource="{Binding Stores}"
-                    ItemDisplayBinding="{Binding Name}"
-                    SelectedItem="{Binding SelectedStore}"
-                    />
+            <Border Padding="15,5" 
+                    StrokeShape="RoundRectangle 20" StrokeThickness="2"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    >
+                <Picker FontSize="26" Style="{StaticResource Main}"
+                        Title="Wybierz..."
+                        ItemsSource="{Binding Stores}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedStore}"/>
+            </Border>
 
 
 
@@ -45,13 +50,25 @@
             </Button>
 
             <CollectionView SelectionMode="None"
-                            ItemsSource="{Binding Vouchers}">
-
+                            ItemsSource="{Binding Vouchers}"
+                            >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="0" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="10" Padding="15" StrokeShape="RoundRectangle 10">
+                        <Grid Padding="10">
+                            <Border Margin="0,0,0,10" Padding="15" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource BackgroundColor}">
+                            <Border.Shadow>
+                                <Shadow Brush="Black"
+                                        Offset="2,5"
+                                        Radius="10"
+                                        Opacity="0.2"
+                                        />
+                            </Border.Shadow>
                             <Grid RowDefinitions="Auto, Auto, Auto" 
-                                 ColumnDefinitions="auto, *">
+                                 ColumnDefinitions="auto, *"
+                                  BackgroundColor="Transparent">
 
                                 <Label Grid.Row="0" Grid.Column="0"
                                        Style="{StaticResource Header}"
@@ -87,6 +104,7 @@
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

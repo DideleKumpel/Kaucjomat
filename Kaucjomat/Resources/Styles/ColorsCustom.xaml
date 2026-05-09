@@ -5,8 +5,8 @@
 
     <Color x:Key="PrimaryColor">#dc2626</Color>
     <Color x:Key="SecondaryColor">#FF4081</Color>
-    <Color x:Key="BackgroundColor">#F3F4F4</Color>
-    <Color x:Key="SecondaryBackgroundColor">#323232</Color>
+    <Color x:Key="BackgroundColor">#FFFFFF</Color>
+    <Color x:Key="SecondaryBackgroundColor">#F3F4F4</Color>
     <Color x:Key="TertiaryBackgroundColor">#D6F1FF</Color>
     <Color x:Key="DangerColor">#FF3131</Color>
     <Color x:Key="SuccesColor">#2EFF2E</Color>

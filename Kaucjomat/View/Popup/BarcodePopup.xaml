@@ -4,7 +4,8 @@
                xmlns:local="clr-namespace:Kaucjomat.View.Popup"
                xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
                xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
-               x:Class="Kaucjomat.View.Popup.BarcodePopup">
+               x:Class="Kaucjomat.View.Popup.BarcodePopup"
+               BackgroundColor="{StaticResource SecondaryBackgroundColor}">
 
     <VerticalStackLayout Spacing="15">
         <Grid>

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kaucjomat.View.AddNewView"
              xmlns:vm="clr-namespace:Kaucjomat.ViewModel"
-             x:DataType="vm:AddNewViewModel">
+             xmlns:behaviors="clr-namespace:Kaucjomat.Behavior"
+             x:DataType="vm:AddNewViewModel"
+             BackgroundColor="{StaticResource SecondaryBackgroundColor}">
     <Shell.TitleView>
         <Label Text="DODAJ VOUCHER"
                TextColor="{StaticResource SecondaryTextColor}"
@@ -14,43 +16,74 @@
                HorizontalTextAlignment="Center" />
     </Shell.TitleView>
     <ScrollView>
-        <VerticalStackLayout Spacing="10" Margin="10">
-        <Label Style="{StaticResource Header}"
+        <VerticalStackLayout Spacing="10" Margin="15">
+        <Label Style="{StaticResource Big}"
             Text="Wybierz sklep"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-            <Picker FontSize="32"
+            VerticalOptions="Center"
+            HorizontalOptions="Start" />
+            <Border Padding="15,5" 
+                StrokeShape="RoundRectangle 20" StrokeThickness="2"
+                BackgroundColor="{StaticResource BackgroundColor}"
+                >
+                <Picker FontSize="26" Style="{StaticResource Main}"
+                    Title="Wybierz..."
                     ItemsSource="{Binding Stores}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding SelectedStore}"/>
+            </Border>
 
 
-            <Label Style="{StaticResource Header}"
+            <Label Style="{StaticResource Big}"
                Text="Kwota"
                VerticalOptions="Center" 
-               HorizontalOptions="Center" />
-            <Entry Style="{StaticResource MainEntry}"
-               Text="{Binding Amount}" Keyboard="Numeric" />
+               HorizontalOptions="Start" />
+            <Border Padding="15,5" 
+                    StrokeShape="RoundRectangle 20" StrokeThickness="2"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    >
+                    <Grid ColumnDefinitions="*, auto">
+                    <Entry Style="{StaticResource MainEntry}"
+                            Text="{Binding Amount}" Keyboard="Numeric" 
+                            MaxLength="10">
+                        <Entry.Behaviors>
+                            <behaviors:DecimalValidatorBehavior />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Label Style="{StaticResource Big}"
+                            Text="zł"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End" />
+                </Grid>
+            </Border>
 
-        <Label Style="{StaticResource Header}"
-               Text="Termin ważności"
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" />
-        <DatePicker 
-            FontSize="32"
-            Date="{Binding ExpiryDate}"/>
+            <Label Style="{StaticResource Big}"
+                   Text="Termin ważności"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Start" />
+            <Border Padding="15,5" 
+                    StrokeShape="RoundRectangle 20" StrokeThickness="2"
+                    BackgroundColor="{StaticResource BackgroundColor}">
+                <DatePicker FontSize="32"
+                            Date="{Binding ExpiryDate}"
+                            Format="dd.MM.yyyy"/>
+            </Border>
 
-        <Label Style="{StaticResource Header}"
-               Text="Kod kreskowy"
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" />
-            <Entry Style="{StaticResource MainEntry}"
-               Text="{Binding BarcodeValue}" Keyboard="Numeric"/>
-
-        <Button Style="{StaticResource MainButton}" Text="SKANUJ KOD"/>
-        <Button Style="{StaticResource RedBtn}" 
-                Text="Dodaj"
-                Command="{Binding SaveVoucherCommand}"/>
+            <Label Style="{StaticResource Big}"
+                   Text="Kod"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Start" />
+            <Border Padding="15,5" 
+                    StrokeShape="RoundRectangle 20" StrokeThickness="2"
+                    BackgroundColor="{StaticResource BackgroundColor}">
+                    <Entry Style="{StaticResource MainEntry}"
+                           Text="{Binding BarcodeValue}" Keyboard="Numeric"/>
+            </Border>
+            
+            <Button Style="{StaticResource MainButton}" 
+                    Text="SKANUJ KOD"/>
+            <Button Style="{StaticResource RedBtn}" 
+                    Text="Dodaj"
+                    Command="{Binding SaveVoucherCommand}"/>
     </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
