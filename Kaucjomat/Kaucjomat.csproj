@@ -45,6 +45,29 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<AndroidSigningKeyStore>kaucjomat.keystore</AndroidSigningKeyStore>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <RunAOTCompilation>False</RunAOTCompilation>
+	  <Debugger>Xamarin</Debugger>
+	  <TrimMode>link</TrimMode>
+	  <PublishTrimmed>False</PublishTrimmed>
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>1opwmnkK</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>kaucjomat</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>1opwmnkK</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
+	  <Debugger>Xamarin</Debugger>
+	  <TrimMode>link</TrimMode>
+	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>1opwmnkK</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>kaucjomat</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>1opwmnkK</AndroidSigningKeyPass>
 	</PropertyGroup>
 
 	<ItemGroup>
