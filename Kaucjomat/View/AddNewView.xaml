@@ -64,6 +64,7 @@
                     StrokeShape="RoundRectangle 20" StrokeThickness="2"
                     BackgroundColor="{StaticResource BackgroundColor}">
                 <DatePicker FontSize="32"
+                            TextColor="{StaticResource TextColor}"
                             Date="{Binding ExpiryDate}"
                             Format="dd.MM.yyyy"/>
             </Border>

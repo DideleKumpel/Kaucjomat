@@ -6,8 +6,8 @@
                xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
                x:Class="Kaucjomat.View.Popup.BarcodePopup"
                BackgroundColor="{StaticResource SecondaryBackgroundColor}">
-
-    <VerticalStackLayout Spacing="15">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
         <Grid>
             <Button Text="X" 
                     Clicked="OnCloseClicked"
@@ -24,20 +24,31 @@
         </Grid>
 
         <Border Padding="10"
-                StrokeShape="RoundRectangle 20">
-            <VerticalStackLayout Spacing="5">
-                <zxing:BarcodeGeneratorView
+                StrokeShape="RoundRectangle 20"
+                HeightRequest="450">
+
+            <ContentView Rotation="90"
+                     HeightRequest="200"
+                     WidthRequest="450">
+
+
+                <VerticalStackLayout Spacing="5">
+                    <zxing:BarcodeGeneratorView
                     HeightRequest="150"
-                    WidthRequest="450"
+                    WidthRequest="400"
                     Format="Code128"
                     Value="{Binding BarcodeValue}" />
 
-                <Label Text="{Binding BarcodeValue}" 
-                   HorizontalOptions="Center"
-                   FontSize="18"
-                   CharacterSpacing="2"/>
-            </VerticalStackLayout>
+                    <Label Text="{Binding BarcodeValue}" 
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource TextColor}"
+                       FontSize="18"
+                       CharacterSpacing="2"/>
+                </VerticalStackLayout>
+            </ContentView>
+
         </Border>
+
 
         <Label Style="{StaticResource Medium}"
                    Text="Warość vouchera" 
@@ -51,5 +62,6 @@
         <Button Style="{StaticResource RedBtn}"
                 Text="Zamknij"
                 Clicked="OnCloseClicked"/>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </toolkit:Popup>

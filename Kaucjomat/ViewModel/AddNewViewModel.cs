@@ -91,6 +91,10 @@ namespace Kaucjomat.ViewModel
                 await _voucherService.AddVoucherAsync(newVoucher);
                 var popup = new MessagePopup("Sukces", "Voucher został dodany");
                 Application.Current.MainPage.ShowPopup(popup);
+                ExpiryDate = DateTime.Now.AddMonths(1);
+                SelectedStore = null;
+                Amount = 0;
+                BarcodeValue = string.Empty;
             }
             catch (Exception ex) {
                 var popup = new MessagePopup("Bład", $"Nie można dodać vouchera: {ex.Message}");
